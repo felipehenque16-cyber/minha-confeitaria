@@ -23,30 +23,30 @@
 <body>
 
 <div class="container">
-    <h1>Doces da Maria 🍰</h1>
+    <h1>Doce Lagom 🍰</h1>
     
     <div id="menu">
         <div class="produto">
             <div>
-                <strong>Bolo de Chocolate</strong><br>
-                <span>15.00€</span>
+                <strong>Trufas</strong><br>
+                <span>R$6,00</span>
             </div>
             <div class="controles">
-                <button class="btn-qtd" onclick="mudarQuantidade('Bolo de Chocolate', 15.00, -1)">-</button>
+                <button class="btn-qtd" onclick="mudarQuantidade('Trufa de Maracujá', 6,00, -1)">-</button>
                 <span id="qtd-Bolo de Chocolate">0</span>
-                <button class="btn-qtd" onclick="mudarQuantidade('Bolo de Chocolate', 15.00, 1)">+</button>
+                <button class="btn-qtd" onclick="mudarQuantidade('Trufa de Maracujá', 6,00, 1)">+</button>
             </div>
         </div>
 
         <div class="produto">
             <div>
-                <strong>Cupcake Morango</strong><br>
-                <span>4.50€</span>
+                <strong>Trufa de Maracujá</strong><br>
+                <span>R$6,00</span>
             </div>
             <div class="controles">
-                <button class="btn-qtd" onclick="mudarQuantidade('Cupcake Morango', 4.50, -1)">-</button>
+                <button class="btn-qtd" onclick="mudarQuantidade('Trufa de Maracujá', 6,00, -1)">-</button>
                 <span id="qtd-Cupcake Morango">0</span>
-                <button class="btn-qtd" onclick="mudarQuantidade('Cupcake Morango', 4.50, 1)">+</button>
+                <button class="btn-qtd" onclick="mudarQuantidade('Trufa de Maracujáo', 6,00, 1)">+</button>
             </div>
         </div>
     </div>
@@ -62,7 +62,6 @@
         <select id="metodo-pagamento" style="width: 100%; padding: 8px; margin-top: 5px;">
             <option value="Cartão de Crédito">Cartão de Crédito</option>
             <option value="MB Way / Pix">MB Way / Pix</option>
-            <option value="Dinheiro">Dinheiro</option>
         </select>
         
         <button class="finalizar-btn" onclick="finalizarPedido()">Enviar Pedido pelo WhatsApp</button>
@@ -136,9 +135,10 @@
         mensagem += `\n💳 *Pagamento:* ${metodo}`;
 
         const numeroTelemovel = "351910000000"; // COLOCA O TEU NÚMERO AQUI
-        window.open(`https://wa.me/${numeroTelemovel}?text=${encodeURIComponent(mensagem)}`, '_blank');
+        window.open(`https://wa.me/${83998591028}?text=${encodeURIComponent(mensagem)}`, '_blank');
     }
 </script>
 
 </body>
 </html>
+
