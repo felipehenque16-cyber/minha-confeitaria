@@ -3,74 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confeitaria Delivery - Pedidos</title>
+    <title>Doce Lagom - Delivery</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fff5f8; color: #333; margin: 0; padding: 20px; }
-        .container { max-width: 600px; margin: auto; background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        h1 { color: #d63384; text-align: center; }
-        .produto { border-bottom: 1px solid #fce4ec; padding: 15px 0; display: flex; justify-content: space-between; align-items: center; }
-        .controles { display: flex; align-items: center; gap: 10px; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fff5f8; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
         
-        button { background-color: #d63384; color: white; border: none; padding: 5px 12px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        button:hover { background-color: #b82b6f; }
-        .btn-qtd { background-color: #f8bbd0; color: #d63384; font-size: 1.2rem; }
+        /* Cabeçalho com o Nome Doce Lagom */
+        .header-confeitaria { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 30px; border-bottom: 2px solid #fce4ec; padding-bottom: 15px; }
+        .logo-confeitaria { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid #d63384; }
+        .titulo-confeitaria { color: #d63384; margin: 0; font-size: 1.8rem; font-family: 'Georgia', serif; }
 
-        #carrinho { margin-top: 30px; border-top: 3px solid #f8bbd0; padding-top: 20px; }
-        .item-carrinho { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.95rem; }
-        .finalizar-btn { width: 100%; padding: 15px; margin-top: 20px; font-size: 1.1rem; }
+        .produto { border-bottom: 1px solid #fce4ec; padding: 15px 0; display: flex; justify-content: space-between; align-items: center; }
+        .detalhes-produto { display: flex; align-items: center; }
+        .foto-produto { width: 65px; height: 65px; border-radius: 10px; margin-right: 12px; object-fit: cover; }
+        
+        .controles { display: flex; align-items: center; gap: 12px; }
+        button.btn-qtd { background-color: #f8bbd0; color: #d63384; border: none; padding: 5px 12px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1rem; }
+        button.btn-qtd:hover { background-color: #f48fb1; }
+
+        #carrinho { margin-top: 30px; background: #fffafa; border: 1px solid #fce4ec; padding: 20px; border-radius: 15px; }
+        .total-container { display: flex; justify-content: space-between; font-size: 1.3rem; margin-top: 15px; border-top: 1px solid #f8bbd0; padding-top: 10px; color: #d63384; }
+        
+        .finalizar-btn { width: 100%; background-color: #25d366; color: white; border: none; padding: 15px; border-radius: 10px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: 20px; }
+        .finalizar-btn:hover { background-color: #128c7e; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Doce Lagom 🍰</h1>
+    <header class="header-confeitaria">
+    <img src="img/logo.png" alt="Logo Confeitaria" class="logo-confeitaria" width="300">
+    <h1 class="titulo-confeitaria">Doce Lagom</h1>
+</header>
+</header>
+    
     
     <div id="menu">
         <div class="produto">
-            <div>
-                <strong>Trufas</strong><br>
-                <span>R$6,00</span>
+            <div class="detalhes-produto">
+                <img src="img/produto1.jpg" alt="Trufa de Maracujá" class="foto-produto">
+                <div>
+                    <strong>Trufa de Maracujá</strong><br>
+                    <span>R$6
+                </div>
             </div>
             <div class="controles">
-                <button class="btn-qtd" onclick="mudarQuantidade('Trufa de Maracujá', 6,00, -1)">-</button>
-                <span id="qtd-Bolo de Chocolate">0</span>
-                <button class="btn-qtd" onclick="mudarQuantidade('Trufa de Maracujá', 6,00, 1)">+</button>
+                <button class="btn-qtd" onclick="mudarQuantidade('Trufa de Maracujá', 6.00, -1)">-</button>
+                <span id="qtd-Trufa de Maracujá">0</span>
+                <button class="btn-qtd" onclick="mudarQuantidade('Trufa de Maracujá', 6.00, 1)">+</button>
             </div>
         </div>
 
         <div class="produto">
-            <div>
-                <strong>Trufa de Maracujá</strong><br>
-                <span>R$6,00</span>
+            <div class="detalhes-produto">
+                <img src="cupcake.jpg" alt="Cupcake Morango" class="foto-produto">
+                <div>
+                    <strong>Cupcake Morango</strong><br>
+                    <span>R$4,50</span>
+                </div>
             </div>
             <div class="controles">
-                <button class="btn-qtd" onclick="mudarQuantidade('Trufa de Maracujá', 6,00, -1)">-</button>
+                <button class="btn-qtd" onclick="mudarQuantidade('Cupcake Morango', 4.50, -1)">-</button>
                 <span id="qtd-Cupcake Morango">0</span>
-                <button class="btn-qtd" onclick="mudarQuantidade('Trufa de Maracujáo', 6,00, 1)">+</button>
+                <button class="btn-qtd" onclick="mudarQuantidade('Cupcake Morango', 4.50, 1)">+</button>
             </div>
         </div>
     </div>
 
     <div id="carrinho">
-        <h2>Resumo do Pedido</h2>
+        <h3 style="margin-top: 0;">🛒 Teu Pedido</h3>
         <div id="lista-carrinho">
-            <p style="color: #888;">Nenhum item selecionado</p>
+            <p style="color: #999; font-size: 0.9rem;">Escolha algo delicioso acima!</p>
         </div>
-        <p><strong>Total: <span id="total">0.00</span>€</strong></p>
         
-        <label>Forma de Pagamento:</label>
-        <select id="metodo-pagamento" style="width: 100%; padding: 8px; margin-top: 5px;">
-            <option value="Cartão de Crédito">Cartão de Crédito</option>
-            <option value="MB Way / Pix">MB Way / Pix</option>
-        </select>
-        
-        <button class="finalizar-btn" onclick="finalizarPedido()">Enviar Pedido pelo WhatsApp</button>
+        <div class="total-container">
+            <strong>Total:</strong>
+            <strong><span id="total">0.00</span>R$</strong>
+        </div>
+
+        <button class="finalizar-btn" onclick="finalizarPedido()">Enviar para o WhatsApp</button>
     </div>
 </div>
 
 <script>
-    let carrinho = {}; // Usamos um objeto para facilitar a contagem
-    let total = 0;
+    let carrinho = {};
+    let valorTotalGeral = 0;
 
     function mudarQuantidade(nome, preco, alteracao) {
         if (!carrinho[nome]) {
@@ -78,67 +95,58 @@
         }
 
         carrinho[nome].qtd += alteracao;
+        if (carrinho[nome].qtd < 0) carrinho[nome].qtd = 0;
 
-        // Se a quantidade for menor que 0, voltamos a 0
-        if (carrinho[nome].qtd < 0) {
-            carrinho[nome].qtd = 0;
-        }
-
-        // Atualiza o número que aparece entre os botões + e -
         document.getElementById(`qtd-${nome}`).textContent = carrinho[nome].qtd;
-        
-        atualizarCarrinho();
+        renderizarCarrinho();
     }
 
-    function atualizarCarrinho() {
-        const lista = document.getElementById('lista-carrinho');
-        lista.innerHTML = '';
-        total = 0;
+    function renderizarCarrinho() {
+        const listaHTML = document.getElementById('lista-carrinho');
+        const totalHTML = document.getElementById('total');
+        listaHTML.innerHTML = '';
+        valorTotalGeral = 0;
         let temItens = false;
 
-        for (let nome in carrinho) {
-            if (carrinho[nome].qtd > 0) {
+        for (let item in carrinho) {
+            if (carrinho[item].qtd > 0) {
                 temItens = true;
-                const subtotal = carrinho[nome].qtd * carrinho[nome].preco;
-                total += subtotal;
+                const subtotal = carrinho[item].qtd * carrinho[item].preco;
+                valorTotalGeral += subtotal;
 
                 const div = document.createElement('div');
-                div.className = 'item-carrinho';
-                div.innerHTML = `<span>${carrinho[nome].qtd}x ${nome}</span> <span>${subtotal.toFixed(2)}€</span>`;
-                lista.appendChild(div);
+                div.style.display = 'flex';
+                div.style.justifyContent = 'space-between';
+                div.style.marginBottom = '8px';
+                div.innerHTML = `<span>R${carrinho[item].qtd}x R${item}</span> <span>${subtotal.toFixed(2)}R$</span>`;
+                listaHTML.appendChild(div);
             }
         }
 
         if (!temItens) {
-            lista.innerHTML = '<p style="color: #888;">Nenhum item selecionado</p>';
+            listaHTML.innerHTML = '<p style="color: #999; font-size: 0.9rem;">Escolha algo delicioso acima!</p>';
         }
-
-        document.getElementById('total').textContent = total.toFixed(2);
+        totalHTML.textContent = valorTotalGeral.toFixed(2);
     }
 
     function finalizarPedido() {
-        if (total === 0) {
-            alert("Adiciona pelo menos um doce ao carrinho!");
+        if (valorTotalGeral === 0) {
+            alert("O carrinho está vazio!");
             return;
         }
 
-        const metodo = document.getElementById('metodo-pagamento').value;
-        let mensagem = "🍓 *Novo Pedido - Confeitaria* 🍓\n\n";
-        
-        for (let nome in carrinho) {
-            if (carrinho[nome].qtd > 0) {
-                mensagem += `✅ ${carrinho[nome].qtd}x ${nome}\n`;
+        let mensagem = "*🧁 NOVO PEDIDO - DOCE LAGOM 🧁*\n\n";
+        for (let item in carrinho) {
+            if (carrinho[item].qtd > 0) {
+                mensagem += `• R${carrinho[item].qtd}x R${item} (${(carrinho[item].qtd * carrinho[item].preco).toFixed(2)}R$)\n`;
             }
         }
+        mensagem += `\n*Total: ${valorTotalGeral.toFixed(2)}€*`;
 
-        mensagem += `\n💰 *Total:* ${total.toFixed(2)}€`;
-        mensagem += `\n💳 *Pagamento:* ${metodo}`;
-
-        const numeroTelemovel = "351910000000"; // COLOCA O TEU NÚMERO AQUI
-        window.open(`https://wa.me/${83998591028}?text=${encodeURIComponent(mensagem)}`, '_blank');
+        const tel = "351910000000"; // ALTERA PARA O TEU NÚMERO
+        window.open(`https://wa.me/${83982092413}?text=${encodeURIComponent(mensagem)}`, '_blank');
     }
 </script>
 
 </body>
 </html>
-
