@@ -1,24 +1,144 @@
-function finalizarPedido() {
-    if (carrinhoItems.length === 0) {
-        alert("O teu carrinho está vazio!");
-        return;
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confeitaria Delivery - Pedidos</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fff5f8; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        h1 { color: #d63384; text-align: center; }
+        .produto { border-bottom: 1px solid #fce4ec; padding: 15px 0; display: flex; justify-content: space-between; align-items: center; }
+        .controles { display: flex; align-items: center; gap: 10px; }
+        
+        button { background-color: #d63384; color: white; border: none; padding: 5px 12px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #b82b6f; }
+        .btn-qtd { background-color: #f8bbd0; color: #d63384; font-size: 1.2rem; }
+
+        #carrinho { margin-top: 30px; border-top: 3px solid #f8bbd0; padding-top: 20px; }
+        .item-carrinho { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.95rem; }
+        .finalizar-btn { width: 100%; padding: 15px; margin-top: 20px; font-size: 1.1rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Doces da Maria 🍰</h1>
+    
+    <div id="menu">
+        <div class="produto">
+            <div>
+                <strong>Bolo de Chocolate</strong><br>
+                <span>15.00€</span>
+            </div>
+            <div class="controles">
+                <button class="btn-qtd" onclick="mudarQuantidade('Bolo de Chocolate', 15.00, -1)">-</button>
+                <span id="qtd-Bolo de Chocolate">0</span>
+                <button class="btn-qtd" onclick="mudarQuantidade('Bolo de Chocolate', 15.00, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="produto">
+            <div>
+                <strong>Cupcake Morango</strong><br>
+                <span>4.50€</span>
+            </div>
+            <div class="controles">
+                <button class="btn-qtd" onclick="mudarQuantidade('Cupcake Morango', 4.50, -1)">-</button>
+                <span id="qtd-Cupcake Morango">0</span>
+                <button class="btn-qtd" onclick="mudarQuantidade('Cupcake Morango', 4.50, 1)">+</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="carrinho">
+        <h2>Resumo do Pedido</h2>
+        <div id="lista-carrinho">
+            <p style="color: #888;">Nenhum item selecionado</p>
+        </div>
+        <p><strong>Total: <span id="total">0.00</span>€</strong></p>
+        
+        <label>Forma de Pagamento:</label>
+        <select id="metodo-pagamento" style="width: 100%; padding: 8px; margin-top: 5px;">
+            <option value="Cartão de Crédito">Cartão de Crédito</option>
+            <option value="MB Way / Pix">MB Way / Pix</option>
+            <option value="Dinheiro">Dinheiro</option>
+        </select>
+        
+        <button class="finalizar-btn" onclick="finalizarPedido()">Enviar Pedido pelo WhatsApp</button>
+    </div>
+</div>
+
+<script>
+    let carrinho = {}; // Usamos um objeto para facilitar a contagem
+    let total = 0;
+
+    function mudarQuantidade(nome, preco, alteracao) {
+        if (!carrinho[nome]) {
+            carrinho[nome] = { qtd: 0, preco: preco };
+        }
+
+        carrinho[nome].qtd += alteracao;
+
+        // Se a quantidade for menor que 0, voltamos a 0
+        if (carrinho[nome].qtd < 0) {
+            carrinho[nome].qtd = 0;
+        }
+
+        // Atualiza o número que aparece entre os botões + e -
+        document.getElementById(`qtd-${nome}`).textContent = carrinho[nome].qtd;
+        
+        atualizarCarrinho();
     }
 
-    const metodo = document.getElementById('metodo-pagamento').value;
-    let mensagem = "Olá! Gostaria de fazer um pedido:\n\n";
-    
-    // Lista os produtos no texto do WhatsApp
-    carrinhoItems.forEach(item => {
-        mensagem += `- ${item.nome}: ${item.preco.toFixed(2)}€\n`;
-    });
+    function atualizarCarrinho() {
+        const lista = document.getElementById('lista-carrinho');
+        lista.innerHTML = '';
+        total = 0;
+        let temItens = false;
 
-    mensagem += `\n*Total:* ${total.toFixed(2)}€`;
-    mensagem += `\n*Pagamento:* ${metodo}`;
+        for (let nome in carrinho) {
+            if (carrinho[nome].qtd > 0) {
+                temItens = true;
+                const subtotal = carrinho[nome].qtd * carrinho[nome].preco;
+                total += subtotal;
 
-    // Codifica o texto para o link do WhatsApp
-    const textoFinal = encodeURIComponent(mensagem);
-    const numeroTelemovel = "351910000000"; // ALTERA PARA O TEU NÚMERO (com código do país)
+                const div = document.createElement('div');
+                div.className = 'item-carrinho';
+                div.innerHTML = `<span>${carrinho[nome].qtd}x ${nome}</span> <span>${subtotal.toFixed(2)}€</span>`;
+                lista.appendChild(div);
+            }
+        }
 
-    // Abre o WhatsApp com a mensagem pronta
-    window.open(`https://wa.me/${numeroTelemovel}?text=${textoFinal}`, '_blank');
-}
+        if (!temItens) {
+            lista.innerHTML = '<p style="color: #888;">Nenhum item selecionado</p>';
+        }
+
+        document.getElementById('total').textContent = total.toFixed(2);
+    }
+
+    function finalizarPedido() {
+        if (total === 0) {
+            alert("Adiciona pelo menos um doce ao carrinho!");
+            return;
+        }
+
+        const metodo = document.getElementById('metodo-pagamento').value;
+        let mensagem = "🍓 *Novo Pedido - Confeitaria* 🍓\n\n";
+        
+        for (let nome in carrinho) {
+            if (carrinho[nome].qtd > 0) {
+                mensagem += `✅ ${carrinho[nome].qtd}x ${nome}\n`;
+            }
+        }
+
+        mensagem += `\n💰 *Total:* ${total.toFixed(2)}€`;
+        mensagem += `\n💳 *Pagamento:* ${metodo}`;
+
+        const numeroTelemovel = "351910000000"; // COLOCA O TEU NÚMERO AQUI
+        window.open(`https://wa.me/${numeroTelemovel}?text=${encodeURIComponent(mensagem)}`, '_blank');
+    }
+</script>
+
+</body>
+</html>
