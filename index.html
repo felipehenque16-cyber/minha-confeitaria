@@ -1,0 +1,24 @@
+function finalizarPedido() {
+    if (carrinhoItems.length === 0) {
+        alert("O teu carrinho está vazio!");
+        return;
+    }
+
+    const metodo = document.getElementById('metodo-pagamento').value;
+    let mensagem = "Olá! Gostaria de fazer um pedido:\n\n";
+    
+    // Lista os produtos no texto do WhatsApp
+    carrinhoItems.forEach(item => {
+        mensagem += `- ${item.nome}: ${item.preco.toFixed(2)}€\n`;
+    });
+
+    mensagem += `\n*Total:* ${total.toFixed(2)}€`;
+    mensagem += `\n*Pagamento:* ${metodo}`;
+
+    // Codifica o texto para o link do WhatsApp
+    const textoFinal = encodeURIComponent(mensagem);
+    const numeroTelemovel = "351910000000"; // ALTERA PARA O TEU NÚMERO (com código do país)
+
+    // Abre o WhatsApp com a mensagem pronta
+    window.open(`https://wa.me/${numeroTelemovel}?text=${textoFinal}`, '_blank');
+}
