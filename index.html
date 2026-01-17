@@ -1,169 +1,101 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doce Lagom - Delivery</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fff5f8; color: #333; margin: 0; padding: 20px; }
-        .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
-        
-        /* Cabeçalho com o Nome Doce Lagom */
-        .header-confeitaria { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 30px; border-bottom: 2px solid #fce4ec; padding-bottom: 15px; }
-        .logo-confeitaria { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid #d63384; }
-        .titulo-confeitaria { color: #d63384; margin: 0; font-size: 1.8rem; font-family: 'Georgia', serif; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doce Lagom - Cardápio Digital</title>
 
-        .produto { border-bottom: 1px solid #fce4ec; padding: 15px 0; display: flex; justify-content: space-between; align-items: center; }
-        .detalhes-produto { display: flex; align-items: center; }
-        .foto-produto { width: 65px; height: 65px; border-radius: 10px; margin-right: 12px; object-fit: cover; }
-        
-        .controles { display: flex; align-items: center; gap: 12px; }
-        button.btn-qtd { background-color: #f8bbd0; color: #d63384; border: none; padding: 5px 12px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1rem; }
-        button.btn-qtd:hover { background-color: #f48fb1; }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        #carrinho { margin-top: 30px; background: #fffafa; border: 1px solid #fce4ec; padding: 20px; border-radius: 15px; }
-        .total-container { display: flex; justify-content: space-between; font-size: 1.3rem; margin-top: 15px; border-top: 1px solid #f8bbd0; padding-top: 10px; color: #d63384; }
-        
-        .finalizar-btn { width: 100%; background-color: #25d366; color: white; border: none; padding: 15px; border-radius: 10px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: 20px; }
-        .finalizar-btn:hover { background-color: #128c7e; }
-    </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <div class="bg-glow"></div>
 
-<div class="container">
-    <header class="header-confeitaria">
-    <img src="https://i.pinimg.com/originals/54/2c/45/542c4582ca79a683b61ad28f926f9efd.png" lass="logo-confeitaria" width="150">
-    <h1 class="titulo-confeitaria">Doce Lagom</h1>
-</header>
-</header>
-    
-    
-    <div id="menu">
-        <div class="produto">
-            <div class="detalhes-produto">
-                <img src="https://i.pinimg.com/736x/f9/18/be/f918bee6d82d0cc6ac595cdd03a6144c.jpg" alt="Trufa de Maracujá" class="foto-produto">
-                <div>
-                    <strong>Trufa de Maracujá</strong><br>
-                    <span>R$6
-                </div>
-            </div>
-            <div class="controles">
-                <button class="btn-qtd" onclick="mudarQuantidade('Trufa de Maracujá', 6.00, -1)">-</button>
-                <span id="qtd-Trufa de Maracujá">0</span>
-                <button class="btn-qtd" onclick="mudarQuantidade('Trufa de Maracujá', 6.00, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="produto">
-            <div class="detalhes-produto">
-                <img src="https://i.pinimg.com/1200x/c4/9b/63/c49b6354c811efd2d8b9da440e05e37a.jpg" alt="Trufa de Paçoca" class="foto-produto">
-                <div>
-                    <strong>Trufa de Paçoca</strong><br>
-                    <span>R$4,50</span>
-                </div>
-            </div>
-            <div class="controles">
-                <button class="btn-qtd" onclick="mudarQuantidade('Trufa de Paçoca', 4.50, -1)">-</button>
-                <span id="qtd-Trufa de Paçoca">0</span>
-                <button class="btn-qtd" onclick="mudarQuantidade('Trufa de Paçoca', 4.50, 1)">+</button>
-            </div>
-        </div>
+  <header class="site-header">
+    <div class="header-content">
+      <img src="https://i.pinimg.com/originals/54/2c/45/542c4582ca79a683b61ad28f926f9efd.png" alt="Doce Lagom" class="logo">
+      <div>
+        <p class="eyebrow">Doces artesanais sob encomenda</p>
+        <h1>Doce Lagom</h1>
+        <p class="subtitle">Onde o menos é, deliciosamente, mais.</p>
+      </div>
     </div>
 
-    <div id="menu">
-        <div class="produto">
-            <div class="detalhes-produto">
-                <img src="https://i.pinimg.com/736x/70/a0/33/70a03324b83094f715bb7dffc56ba516.jpg" alt="Trufa de Maracujá" class="foto-produto">
-                <div>
-                    <strong>Trufa de Ninho com Nutella</strong><br>
-                    <span>R$8
-                </div>
-            </div>
-            <div class="controles">
-                <button class="btn-qtd" onclick="mudarQuantidade('Trufa de Ninho com Nutella', 8.00, -1)">-</button>
-                <span id="qtd-Trufa de Ninho com Nutella">0</span>
-                <button class="btn-qtd" onclick="mudarQuantidade('Trufa de Ninho com Nutella', 8.00, 1)">+</button>
-            </div>
-        </div>
-
-    <div id="carrinho">
-        <h3 style="margin-top: 0;">🛒 Teu Pedido</h3>
-        <div id="lista-carrinho">
-            <p style="color: #999; font-size: 0.9rem;">Escolha algo delicioso acima!</p>
-        </div>
-        
-        <div class="total-container">
-            <strong>Total:</strong>
-            <strong><span id="total">R$0.00</span></strong>
-        </div>
-
-        <button class="finalizar-btn" onclick="finalizarPedido()">Enviar para o WhatsApp</button>
+    <div class="hero-actions">
+      <button class="cta" onclick="document.getElementById('bolo-pote').scrollIntoView({behavior:'smooth'})">Ver bolos de pote</button>
+      <button class="cta secondary" onclick="document.getElementById('combos').scrollIntoView({behavior:'smooth'})">Explorar combos</button>
     </div>
-</div>
 
-<script>
-    let carrinho = {};
-    let valorTotalGeral = 0;
+    <div class="highlight-bar">
+      <div>
+        <strong>Entrega rápida</strong>
+        <span>Agende pelo WhatsApp</span>
+      </div>
+      <div>
+        <strong>Produção diária</strong>
+        <span>Ingredientes fresquinhos</span>
+      </div>
+      <div>
+        <strong>Combos especiais</strong>
+        <span>Monte o pedido ideal</span>
+      </div>
+    </div>
 
-    function mudarQuantidade(nome, preco, alteracao) {
-        if (!carrinho[nome]) {
-            carrinho[nome] = { qtd: 0, preco: preco };
-        }
+    <nav id="category-nav" class="nav-scroll" aria-label="Categorias">
+      <!-- Populated by JS -->
+    </nav>
+  </header>
 
-        carrinho[nome].qtd += alteracao;
-        if (carrinho[nome].qtd < 0) carrinho[nome].qtd = 0;
+  <main class="container">
+    <section class="intro">
+      <div>
+        <h2>Escolha o corredor perfeito</h2>
+        <p>O cardápio está organizado em corredores para facilitar a escolha: trufas, bolos de pote e combos pensados para presentear.</p>
+      </div>
+      <div class="intro-card">
+        <h3>Pedido pronto em minutos</h3>
+        <p>Selecione os itens, confira o resumo e finalize direto no WhatsApp com todos os detalhes.</p>
+      </div>
+    </section>
 
-        document.getElementById(`qtd-${nome}`).textContent = carrinho[nome].qtd;
-        renderizarCarrinho();
-    }
+    <div id="menu-container">
+      <!-- Populated by JS -->
+    </div>
 
-    function renderizarCarrinho() {
-        const listaHTML = document.getElementById('lista-carrinho');
-        const totalHTML = document.getElementById('total');
-        listaHTML.innerHTML = '';
-        valorTotalGeral = 0;
-        let temItens = false;
+    <aside class="cart-section">
+      <div class="cart-header">
+        <h2>Resumo do pedido</h2>
+        <span class="cart-pill">Atualizado em tempo real</span>
+      </div>
+      <div id="cart-items">
+        <p class="empty-msg">Seu carrinho está vazio 😢</p>
+      </div>
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="total-valor">R$ 0,00</span>
+      </div>
+    </aside>
+  </main>
 
-        for (let item in carrinho) {
-            if (carrinho[item].qtd > 0) {
-                temItens = true;
-                const subtotal = carrinho[item].qtd * carrinho[item].preco;
-                valorTotalGeral += subtotal;
+  <footer class="site-footer">
+    <p>Feito com cuidado e açúcar na medida certa.</p>
+    <p>Fale com a Doce Lagom para personalizações e datas especiais.</p>
+  </footer>
 
-                const div = document.createElement('div');
-                div.style.display = 'flex';
-                div.style.justifyContent = 'space-between';
-                div.style.marginBottom = '8px';
-                div.innerHTML = `<span>${carrinho[item].qtd}x ${item}</span> <span>${subtotal.toFixed(2)}</span>`;
-                listaHTML.appendChild(div);
-            }
-        }
+  <div id="floating-cart" class="floating-cart" onclick="checkout()" role="button" aria-label="Finalizar pedido">
+    <div class="cart-summary">
+      <span class="badge" id="cart-count">0</span>
+      <span>Ver sacola</span>
+    </div>
+    <div>
+      <span id="cart-total-float">R$ 0,00</span>
+      <span class="arrow">➔</span>
+    </div>
+  </div>
 
-        if (!temItens) {
-            listaHTML.innerHTML = '<p style="color: #999; font-size: 0.9rem;">Escolha algo delicioso acima!</p>';
-        }
-        totalHTML.textContent = valorTotalGeral.toFixed(2);
-    }
-
-    function finalizarPedido() {
-        if (valorTotalGeral === 0) {
-            alert("O carrinho está vazio!");
-            return;
-        }
-
-        let mensagem = "*🧁 NOVO PEDIDO - DOCE LAGOM 🧁*\n\n";
-        for (let item in carrinho) {
-            if (carrinho[item].qtd > 0) {
-                mensagem += `• ${carrinho[item].qtd}x ${item} (${(carrinho[item].qtd * carrinho[item].preco).toFixed(2)})\n`;
-            }
-        }
-        mensagem += `\n*Total: ${valorTotalGeral.toFixed(2)}*`;
-
-        const tel = "351910000000"; // ALTERA PARA O TEU NÚMERO
-        window.open(`https://wa.me/${5583993889854}?text=${encodeURIComponent(mensagem)}`, '_blank');
-    }
-</script>
-
+  <script src="js/script.js"></script>
 </body>
 </html>
-
