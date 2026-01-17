@@ -70,7 +70,7 @@ const menu = [
         id: "combo-bolo-trufa",
         name: "Combo: Bolo de Pote + Trufa",
         description: "Escolha 1 bolo de pote e 1 trufa. Informe os sabores no pedido.",
-        price: 16.0,
+        price: 20.0,
         image:
           "https://images.unsplash.com/photo-1514516870926-20554f7bf3e0?auto=format&fit=crop&q=80&w=480&h=360",
       },
