@@ -27,8 +27,9 @@ const menu = [
         price: 8.0,
         image:
           "https://i.pinimg.com/736x/70/a0/33/70a03324b83094f715bb7dffc56ba516.jpg",
-      },
-      {
+     ],
+  },
+  {
         id: "trufa-morango-nutella",
         name: "Trufa de Morango",
         description: "Recheio cremoso de Morango com Nutella",
