@@ -28,13 +28,6 @@ const menu = [
         image:
           "https://i.pinimg.com/736x/70/a0/33/70a03324b83094f715bb7dffc56ba516.jpg",
       },
-      {
-      id: "trufa-morango",
-        name: "Trufa de Morango com Nutella",
-        description: "Aposto que você vai amar",
-        price: 8.0,
-        image:
-          "https://i.pinimg.com/736x/4c/5b/f7/4c5bf744c62f1883fd8029dd0c00586c.jpg",
     ],
   },
   {
@@ -77,7 +70,7 @@ const menu = [
         id: "combo-bolo-trufa",
         name: "Combo: Bolo de Pote + Trufa",
         description: "Escolha 1 bolo de pote e 1 trufa. Informe os sabores no pedido.",
-        price: 20.0,
+        price: 16.0,
         image:
           "https://images.unsplash.com/photo-1514516870926-20554f7bf3e0?auto=format&fit=crop&q=80&w=480&h=360",
       },
