@@ -4,30 +4,41 @@ const menu = [
     title: "Trufas",
     icon: "🍬",
     items: [
-      {
+{
         id: "trufa-maracuja",
         name: "Trufa de Maracujá",
         description: "Recheio cremoso de maracujá com cobertura intensa de chocolate.",
         price: 6.0,
-        image:
-          "https://i.pinimg.com/736x/f9/18/be/f918bee6d82d0cc6ac595cdd03a6144c.jpg",
+        image: "https://i.pinimg.com/736x/f9/18/be/f918bee6d82d0cc6ac595cdd03a6144c.jpg",
       },
       {
-        id: "trufa-pacoca",
-        name: "Trufa de Paçoca",
-        description: "Paçoca artesanal com toque de doce de leite e cacau.",
+        id: "trufa-pistache",
+        name: "Trufa de Pistache",
+        description: "Ganache premium de pistache iraniano com chocolate branco.",
+        price: 9.0,
+        image: "https://images.unsplash.com/photo-1548907040-4baa42d10079?auto=format&fit=crop&q=80&w=480&h=360",
+      },
+      {
+        id: "trufa-morango-leite-ninho",
+        name: "Trufa de Morango com Ninho",
+        description: "O famoso 'bombom de morango' com creme de leite ninho.",
+        price: 7.5,
+        image: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&q=80&w=480&h=360",
+      },
+      {
+        id: "trufa-cafe",
+        name: "Trufa de Café Espresso",
+        description: "Chocolate meio amargo com infusão de café arábica.",
+        price: 6.5,
+        image: "https://images.unsplash.com/photo-1542841791-192d4ee14bb0?auto=format&fit=crop&q=80&w=480&h=360",
+      },
+      {
+        id: "trufa-caramelo-salgado",
+        name: "Trufa de Caramelo Salgado",
+        description: "Caramelo artesanal com flor de sal e chocolate ao leite.",
         price: 7.0,
-        image:
-          "https://i.pinimg.com/1200x/c4/9b/63/c49b6354c811efd2d8b9da440e05e37a.jpg",
-      },
-      {
-        id: "trufa-ninho-nutella",
-        name: "Trufa de Ninho com Nutella",
-        description: "Avelã cremosa e leite ninho em uma combinação irresistível.",
-        price: 8.0,
-        image:
-          "https://i.pinimg.com/736x/70/a0/33/70a03324b83094f715bb7dffc56ba516.jpg",
-      },
+        image: "https://images.unsplash.com/photo-1582176604856-e82297985722?auto=format&fit=crop&q=80&w=480&h=360",
+      }
     ],
   },
   {
