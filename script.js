@@ -233,10 +233,9 @@ function checkout() {
     "\nApartamento:" +
     "\nBloco:" +
     "\nForma de pagamento:";
-  mensagem +=
-    "\n\n*Endereço de entrega:* \n(Por favor, digite seu endereço aqui)";
 
-  const numeroWhatsApp = "5583993889854";
+
+  const numeroWhatsApp = "558393889854";
   window.open(
     `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`,
     "_blank"
