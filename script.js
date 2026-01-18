@@ -37,7 +37,7 @@ const menu = [
         name: "Trufa de Chocolate",
         description: "Chocolate top",
         price: 7.0,
-        image: "https://i.pinimg.com/736x/2b/7c/25/2b7c258f2bc92ae6ef43558a3d5ebedf.jpg",
+        image: "https://i.pinimg.com/1200x/a9/c5/ff/a9c5ffd002de82f895b19bfc7dbfabaa.jpg",
       }
     ],
   },
@@ -79,11 +79,11 @@ const menu = [
     items: [
       {
         id: "combo-bolo-trufa",
-        name: "Combo: Bolo de Pote + Trufa",
-        description: "Escolha 1 bolo de pote e 1 trufa. Informe os sabores no pedido.",
+        name: "Combo: Bolo de Pote de Maracujá + Trufa Chocolate",
+        description: "Nesse combo você terá um mix de sabor com uma trufa e um bolo e bem baratinho",
         price: 16.0,
         image:
-          "https://images.unsplash.com/photo-1514516870926-20554f7bf3e0?auto=format&fit=crop&q=80&w=480&h=360",
+          "https://i.pinimg.com/736x/48/d3/e7/48d3e79190ed985bb17778a0de83e43c.jpg",
       },
     ],
   },
